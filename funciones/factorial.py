@@ -4,5 +4,5 @@ def factorial(numero):
     print("Valor numerico", numero)
     return numero
 
-
-print(factorial(2))
+if __name__ == "__main__":
+    print(factorial(2))
