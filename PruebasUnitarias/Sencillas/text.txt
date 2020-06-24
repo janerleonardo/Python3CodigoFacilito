@@ -1,0 +1,14 @@
+La suma de 2 + 2 es igual 4
+>>> 2 + 2
+4
+
+LA SUMA DE 10+30 ES IGUAL 30
+>>> 10 + 30
+40
+
+>>> def suma(*args):
+...    return sum(args)
+
+la suma de 10 +20 + 30 debe ser igual  60
+>>> suma(10,20,30)
+60
