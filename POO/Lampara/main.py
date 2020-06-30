@@ -10,6 +10,7 @@ from lamp import Lamp
 
 def run():
     lamp = Lamp(is_turned_on=False)
+    lamp._display_image()
 
     while True:
         command = input('''
