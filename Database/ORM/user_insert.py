@@ -28,6 +28,8 @@ if  __name__ == '__main__':
         query = User.delete()
         query.execute()
         #Tambien pude Utilizar el metodos User.drop_table(), para borrar la tabla
+        #User.drop_table()
+
 
     # Primera forma de crear un usuario
     user = User()
