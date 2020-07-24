@@ -76,8 +76,15 @@ if __name__ == '__main__':
     #Product.create(store_id=2, name='Huevos', description = 'Huevos AAA', price = 10.30, stock= 20)
     #Product.create(store_id=2, name='Queso', description = 'Queso costeño', price = 6.87, stock= 30)
 
-    products = Product.select().where(Product.store_id == 1)
-    for product in products:
+    query =  (
+        Product.select()
+        #.join(Store, on=(Product.store_id == Store.user_id)) # si no se tuviera realacio  el on es por tuplas
+        .join(Store)
+        .join(User)
+        .where(User.id == 1)
+    )
+
+    for product in query:
         print(product)
 
 
