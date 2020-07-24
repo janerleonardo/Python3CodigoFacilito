@@ -135,3 +135,17 @@ if  __name__ == '__main__':
     for user in users:
         print(user)
 
+    print()
+    # Si el usaurio no existe
+    try:
+        user = User.get(User.id == 9)
+        print(user)
+    except User.DoesNotExist:
+        print('El usuario no existe')
+
+    exist = User.select().where(User.id == 9).exists()
+    if exist:
+        print('El usuario existe')
+    else:
+        print('El usuario no existe')
+
