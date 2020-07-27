@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask</title>
+</head>
+<body>
+<!-- De esta manera se maneja las extructuras de control -->
+{% if user_ip %}
+    <h1>La ip del usario es {{ user_ip }}</h1>
+{% else %}
+    <a href="{{ url_for('index') }}"> Ir a Inicio</a>
+{% endif %}
+<ul>
+    {% for all in everyone%}
+        <li>{{ all }}</li>
+    {% endfor%}
+</ul>
+
+
+
+</body>
+</html>
