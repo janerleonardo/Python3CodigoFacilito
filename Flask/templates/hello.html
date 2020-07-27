@@ -1,23 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Flask</title>
-</head>
-<body>
-<!-- De esta manera se maneja las extructuras de control -->
-{% if user_ip %}
-    <h1>La ip del usario es {{ user_ip }}</h1>
-{% else %}
-    <a href="{{ url_for('index') }}"> Ir a Inicio</a>
-{% endif %}
-<ul>
-    {% for all in everyone%}
-        <li>{{ all }}</li>
-    {% endfor%}
-</ul>
+{% extends 'base.html' %}
+<!-- Importamos los macros-->
+{% import 'macros.html' as macros %}
+<!-- con este bloque esteremos sobre escribiendo el personalizando el Title  de base -->
+<!-- Para evitar la sobre escritura de codigo utilizaremos {{ super() }}-->
+<!-- Tambien crearmos un archivo macro en taplate que son codigo reutilizable que se utilizara en varias partes -->
+{% block title %}
+    {{ super() }}
+    Bienvenido
+{% endblock %}
 
-
-
-</body>
-</html>
+{% block contect  %}
+    {% if user_ip %}
+        <h1>La ip del usario es {{ user_ip }}</h1>
+    {% else %}
+        <a href="{{ url_for('index') }}"> Ir a Inicio</a>
+    {% endif %}
+    <ul>
+        {% for all in everyone%}
+            {{ macros.render_everyone(all) }}
+        {% endfor%}
+    </ul>
+{% endblock %}
