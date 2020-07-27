@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        <!-- Bloque de titulo-->
         {% block title %}Flask  |  {% endblock %}
     </title>
 </head>
 <body>
 
+    <!-- Incluimos navbar-->
+    <header>
+        {% include 'navbar.html' %}
+    </header>
     <!-- Bloque de contenido-->
     {% block contect %} Contenido {% endblock %}
 </body>
