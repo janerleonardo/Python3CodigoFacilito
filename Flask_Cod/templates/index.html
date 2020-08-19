@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Hola {{ name }}</title>
+</head>
+<body>
+    <h1>Mensaje desde el documento Html</h1>
+    <p>El mansje se encuentra dentro deuna Etiqueta .html, es excelente</p>
+    {# Esto es un comentario no de renderiza en el html #}
+    {% if is_premium %}
+        <p>Este curso es Premium por favor aprovechalo</p>
+    {% else %}
+        <p>El curos es Gratuito</p>
+    {% endif %}
+
+    {% if courses %}
+        <h3>Lista de cursos :</h3>
+        <ul>
+            {%for course in courses%}
+                <li> {{ course }} </li>
+            {% endfor %}
+        </ul>
+    {% endif%}
+
+    <footer>
+        <h4>Desarrollado en el curso de {{ course }}</h4>
+    </footer>
+</body>
+</html>
