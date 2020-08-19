@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Hola {{ name }}</title>
-    <link rel="stylesheet" href=" {{ url_for('static', filename='css/style.css') }}">
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</head>
-<body>
-    <h1>Mensaje desde el documento Html</h1>
+{% extends 'base.html' %}
+
+    {% block title%}
+        Hola {{ name }}
+    {%endblock%}
+
+
+    {% block content %}
+    <h2>Mensaje desde el documento index.html</h2>
     <p>El mansje se encuentra dentro deuna Etiqueta .html, es excelente</p>
     {# Esto es un comentario no de renderiza en el html #}
     {% if is_premium %}
@@ -28,7 +27,10 @@
     {% endif%}
 
     <footer>
-        <h4>Desarrollado en el curso de {{ course }}</h4>
+        <h4>Curso desarrollado en {{ course }} </h4>
     </footer>
-</body>
-</html>
+
+
+
+
+    {% endblock %}
