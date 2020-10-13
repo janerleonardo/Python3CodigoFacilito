@@ -1,6 +1,18 @@
 from flask import Flask, render_template,request
 app = Flask(__name__)
 
+# Con el Callback befare_request puedes ejecutar cosas antes de la peticion, se usa para conectarse a una PAI, Base de datos, etc
+@app.before_request
+def before_request():
+    print('Antes de la peticiones')
+
+# Se ejecuat despues de cada peticion revise como parametro la repuesta de cada peticion, esa repues la debemos retornar
+# y las accciones la ponemos antes del return
+@app.after_request
+def after_requests(response):
+    print('Despues')
+    return response
+
 @app.route('/')
 def index():
     name = 'Janer'
@@ -8,6 +20,12 @@ def index():
     is_premium = False
     courses = ['Python', 'Ruby', 'C#', 'Java', 'Go', 'JavaScripts']
     return render_template('index.html', name=name, course=course,is_premium=is_premium,courses=courses)
+
+@app.route('/about')
+def about():
+    print('En about')
+    return render_template('about.html')
+
 #Para defini un parametro se utiliza <> (signo de mayor y menor )
 @app.route('/usuario/<username>')
 def usuario(username):

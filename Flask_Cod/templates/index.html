@@ -26,11 +26,13 @@
         </ul>
     {% endif%}
 
-    <footer>
-        <h4>Curso desarrollado en {{ course }} </h4>
-    </footer>
+    {% endblock %}
 
+    {% block footer %}
+        {{super()}}
 
-
+        <footer>
+            <h4>Curso desarrollado en {{ course }} </h4>
+        </footer>
 
     {% endblock %}
